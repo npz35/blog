@@ -1,0 +1,3 @@
+[submodule "themes/simplify-theme"]
+	path = themes/simplify-theme
+	url = https://github.com/vuquangtrong/simplify-theme.git
