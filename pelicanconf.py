@@ -12,7 +12,7 @@ SITESUBTITLE = SITENAME
 SITEDESCRIPTION = SITENAME
 # SITELOGO = 'logo.png'
 COPYRIGHT_YEAR = datetime.now().year
-SITEURL = 'localhost:9000'
+SITEURL = 'localhost:8000'
 
 THEME = './themes/simplify-theme'
 PATH = 'content'
