@@ -1,3 +1,6 @@
 [submodule "themes/simplify-theme"]
 	path = themes/simplify-theme
 	url = https://github.com/vuquangtrong/simplify-theme.git
+[submodule "plugins"]
+	path = plugins
+	url = https://github.com/getpelican/pelican-plugins.git

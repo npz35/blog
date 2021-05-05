@@ -18,13 +18,14 @@ THEME = './themes/simplify-theme'
 PATH = 'content'
 
 STATIC_PATHS = [
+    'articles',
 ]
 
 SLUGIFY_SOURCE = 'basename'
 PAGE_ORDER_BY = 'basename'
 PAGES_SORT_ATTRIBUTE = 'source_path'
 
-ARTICLE_PATHS = ['pages']
+ARTICLE_PATHS = ['articles']
 ARTICLE_URL = 'posts/{date:%Y}/{date:%m}/{slug}/'
 ARTICLE_SAVE_AS = 'posts/{date:%Y}/{date:%m}/{slug}/index.html'
 # ARTICLE_PRIMARY_PATH = 'posts'
