@@ -33,6 +33,7 @@ ARTICLE_SAVE_AS = 'archive/{date:%Y}/{date:%m}/{slug}/index.html'
 TIMEZONE = 'Asia/Tokyo'
 LOCALE = 'ja_JP'
 DEFAULT_LANG = 'ja'
+DEFAULT_DATE = 'fs'
 
 DATE_FORMATS = {
     'en': '%a, %d %b %Y',
