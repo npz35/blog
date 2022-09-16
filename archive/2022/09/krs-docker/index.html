@@ -1,0 +1,524 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<!-- Head -->
+<head>
+
+        <!-- Required metadata tags -->
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <!-- Default metadata -->
+    <meta name="author" content="npz35" />
+    <meta name="description" content="KRSをビルドするために環境を汚したくないため、Dockerコンテナに閉じたい。 というわけで、Dockerfileを作成し、Kria KV260向けのKRSをビ …" />
+    <meta name="keywords" content="Kria Robotic Stack, Kria KV260, Docker">
+<meta property="og:site_name" content="メガバイト置き場" />
+<meta property="og:title" content="KRSをDockerコンテナに閉じる" />
+<meta property="og:description" content="KRSをビルドするために環境を汚したくないため、Dockerコンテナに閉じたい。 というわけで、Dockerfileを作成し、Kria KV260向けのKRSをビ …" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="../../../../archive/2022/09/krs-docker/" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-09-11 17:00:00+09:00" />
+<meta property="article:modified_time" content="2022-09-11 17:00:00+09:00" />
+<meta property="article:author" content="../../../../author/npz35.html">
+<meta property="article:section" content="Xilinx" />
+	<meta property="article:tag" content="Kria Robotic Stack" />
+	<meta property="article:tag" content="Kria KV260" />
+	<meta property="article:tag" content="Docker" />
+	<meta property="og:image" content="../../../../">
+
+        <!-- Site Claim -->
+
+
+        <!-- Title -->
+        <title>
+    KRSをDockerコンテナに閉じる &ndash; メガバイト置き場
+        </title>
+        
+        <!-- Icon -->
+        <link rel="shortcut icon" href="../../../../favicon.ico" type="image/x-icon">
+        <link rel="icon" href="../../../../favicon.ico" type="image/x-icon">
+
+        <!-- Search engine -->
+            <meta name="robots" content="index, follow" />
+
+        <!-- Feeds -->
+
+
+
+
+
+
+
+
+        <!-- Styles -->
+        <!--
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/4.3.1/css/bootstrap.min.css">
+        -->
+        <link rel="stylesheet" href="../../../../theme/bootstrap/bootstrap.min.css">
+        <!--
+        <link rel="stylesheet" href="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.css">
+        -->
+        <link rel="stylesheet" href="../../../../theme/pygment/friendly.min.css">
+        <!--
+        <link rel="stylesheet" href="../../../../theme/extra/admonition.min.css">
+        -->
+        <link rel="stylesheet" href="../../../../theme/style.css">
+
+        <!-- Google Analytics -->
+
+        <!-- Google Global Site Tag -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JTXBDTM8QY"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag() { dataLayer.push(arguments); }
+	gtag('js', new Date());
+	gtag('config', 'G-JTXBDTM8QY');
+</script>
+        <!-- Google Tag Manager -->
+
+        <!-- Google Adsense -->
+
+        <!-- Heap Analytic -->
+
+        <!-- Piwik Tracking -->
+
+        <!-- Matomo Tracking -->
+
+</head>
+
+<!-- Body -->
+<body class="d-flex flex-column" data-spy="scroll" data-target="#toc" data-offset="0" style="position: relative;">
+    <!-- Top anchor -->
+    <a href="#" id="backToTop" style="display: none; z-index: 1;" title="Back to top"><span></span></a>
+
+    <!-- Google tag manager -->
+
+    <!-- Navigation -->
+    <nav class="flex-shrink-0 navbar navbar-expand-md navbar-expand-lg navbar-dark bg-dark text-light shadow-sm">
+        <!-- Logo -->
+        <a class="navbar-brand" href="../../../..">メガバイト置き場</a>
+
+        <!-- Collapse button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon small"></span>
+        </button>
+
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="navbarMenu">
+            <!-- Page links -->
+            <ul class="navbar-nav mr-auto text-center">
+                <li class="nav-item ">                           
+                    <a class="nav-link" href="../../../..">
+                        <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24">
+                            <path d="M21 13v10h-6v-6h-6v6h-6v-10h-3l12-12 12 12h-3zm-1-5.907v-5.093h-3v2.093l3 3z" fill="currentColor"></path>
+                        </svg>
+                        Home <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="../../../../categories.html">
+                        <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24">
+                            <path d="M16 6h-8v-6h8v6zm-8 12h-8v6h8v-6zm16 0h-8v6h8v-6zm-11-7v-3h-2v3h-8v5h2v-3h14v3h2v-5h-8z" fill="currentColor"></path>
+                        </svg>
+                        Categories
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="../../../../tags.html">
+                        <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24">
+                            <path d="M10.605 0h-10.605v10.609l13.391 13.391 10.609-10.604-13.395-13.396zm-4.191 6.414c-.781.781-2.046.781-2.829.001-.781-.783-.781-2.048 0-2.829.782-.782 2.048-.781 2.829-.001.782.782.781 2.047 0 2.829z" fill="currentColor"></path>
+                        </svg>
+                        Tags
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="../../../../archives.html">
+                        <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24">
+                            <path d="M1.8 9l-.8-4h22l-.8 4h-2.029l.39-2h-17.122l.414 2h-2.053zm18.575-6l.604-2h-17.979l.688 2h16.687zm3.625 8l-2 13h-20l-2-13h24zm-8 4c0-.552-.447-1-1-1h-6c-.553 0-1 .448-1 1s.447 1 1 1h6c.553 0 1-.448 1-1z" fill="currentColor"></path>
+                        </svg>
+                        Archives
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="../../../../pages/about.html">
+                        <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24">
+                            <path d="M20.822 18.096c-3.439-.794-6.64-1.49-5.09-4.418 4.72-8.912 1.251-13.678-3.732-13.678-5.082 0-8.464 4.949-3.732 13.678 1.597 2.945-1.725 3.641-5.09 4.418-3.073.71-3.188 2.236-3.178 4.904l.004 1h23.99l.004-.969c.012-2.688-.092-4.222-3.176-4.935z" fill="currentColor"></path>
+                        </svg>
+                        About
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="../../../../pages/policy.html">
+                        <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24">
+                            <path d="M20.822 18.096c-3.439-.794-6.64-1.49-5.09-4.418 4.72-8.912 1.251-13.678-3.732-13.678-5.082 0-8.464 4.949-3.732 13.678 1.597 2.945-1.725 3.641-5.09 4.418-3.073.71-3.188 2.236-3.178 4.904l.004 1h23.99l.004-.969c.012-2.688-.092-4.222-3.176-4.935z" fill="currentColor"></path>
+                        </svg>
+                        Privacy policy and disclaimer
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Search form -->
+            <form class="form-inline text-center" action="../../../../search.html">
+                <input class="form-control w-100 bg-dark text-light text-center border-0 p-2" type="text" name="q" pattern=".{3,}" title="At least 3 characters" required="" placeholder="Type here to search" aria-label="Search">
+            </form>
+
+            <!-- Social links -->
+            <ul class="navbar-nav text-center">
+                <li class="nav-item">
+                    <a class="nav-link" href="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <title>Facebook</title>
+                            <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-2.308c0-1.769.931-2.692 3.029-2.692h1.971v3z" fill="currentColor"></path>
+                        </svg>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <title>Github</title>
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" fill="currentColor"></path>
+                        </svg>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <title>Linkedin</title>
+                            <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-2v-6h2v6zm-1-6.891c-.607 0-1.1-.496-1.1-1.109 0-.612.492-1.109 1.1-1.109s1.1.497 1.1 1.109c0 .613-.493 1.109-1.1 1.109zm8 6.891h-1.998v-2.861c0-1.881-2.002-1.722-2.002 0v2.861h-2v-6h2v1.093c.872-1.616 4-1.736 4 1.548v3.359z" fill="currentColor"></path>
+                        </svg>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <title>Twitter</title>
+                            <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z" fill="currentColor"></path>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Full page -->
+    <div class="flex-shrink-0 flex-grow-1">
+
+        <!-- Header -->
+        <header class="bg-dark text-light shadow-sm pt-3 pb-2">
+	<div class="container">
+		<h3 id="krs-docker">KRSをDockerコンテナに閉じる</h3>
+		<p style="font-size:larger;"><p>KRSをビルドするために環境を汚したくないため、Dockerコンテナに閉じたい。
+というわけで、Dockerfileを作成し、Kria KV260向けのKRSをビ …</p></p>
+        <div class="row mx-auto mt-3">
+            <div class="col-xs-12 col-sm-12 col-md-6 text-left" style="padding: 0">
+                <a href="../../../../author/npz35.html" class="card-link">npz35</a>
+                <span class="card-link text-success">
+                    <span class="post-date" title="Post date">Sun 11 September 2022</span>
+                    <span class="text-info modified-date" title="Updated date">
+                            Sun 11 September 2022
+                    </span>
+                </span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 text-right" style="padding: 0">
+                <a class="badge badge-success" href="../../../../category/xilinx.html">xilinx</a>
+                    <a class="badge badge-info" href="../../../../tag/kria-robotic-stack.html">kria robotic stack</a>
+                    <a class="badge badge-info" href="../../../../tag/kria-kv260.html">kria kv260</a>
+                    <a class="badge badge-info" href="../../../../tag/docker.html">docker</a>
+            </div>
+        </div>
+	</div>
+        </header>
+
+        <!-- Main -->
+        <main class="py-3">
+                <div class="container">
+                    <!-- Sharing -->
+
+                    <!-- Content -->
+    <!-- 2 columns layout -->
+    <!-- single column layout -->
+        <!-- Sharing -->
+
+        <!-- Share post -->
+
+        <!-- Article -->
+        <div>
+            <p>KRSをビルドするために環境を汚したくないため、Dockerコンテナに閉じたい。
+というわけで、Dockerfileを作成し、Kria KV260向けのKRSをビルドするまでの手順を整理した。</p>
+<div class="section" id="id1">
+<h2>動作環境</h2>
+<ul class="simple">
+<li>OS : Ubuntu 20.04.3 LTS（64 bit）</li>
+<li>Vivado : 2022.1</li>
+<li>Vitis : 2022.1</li>
+<li>Vitis_HLS : 2022.1</li>
+<li>ROS2 : Humble</li>
+</ul>
+</div>
+<div class="section" id="krs">
+<h2>KRSとは</h2>
+<p>KRS（Kria Robotic Stack）とは、Kriaボード向けにROS2のパッケージをビルドするツールのことである。
+<a class="reference external" href="https://japan.xilinx.com/applications/industrial/robotics/kria-robotics.html">公式サイト</a> には以下の記載がある。</p>
+<blockquote>
+Kria ロボティクス スタック (KRS) は、ハードウェアを使用して、産業用グレードのロボット ソリューションの開発、メンテナンス、商用展開を加速するためのロボット ライブラリとユーティリティの統合セットです。</blockquote>
+<p>今回作成したDockerfileの内容は、基本的には <a class="reference external" href="https://xilinx.github.io/KRS/sphinx/build/html/index.html">https://xilinx.github.io/KRS/sphinx/build/html/index.html</a> の内容を踏襲した。
+Dockerイメージのビルド手順は <a class="reference external" href="https://github.com/npz35/vitis_tutorial/blob/0.0.1/README_krs.md">https://github.com/npz35/vitis_tutorial/blob/0.0.1/README_krs.md</a> にまとめた。</p>
+<p><a class="reference external" href="https://github.com/ros-acceleration/acceleration_firmware_kv260/tree/v1.0.0#hardware-acceleration-capabilities">acceleration_firmware_kv260</a> を見るとわかるが、KRSにはalphaとbetaと1.0がある。
+ここでは1.0を使用する。</p>
+</div>
+<div class="section" id="id3">
+<h2>KRSのビルド（開発マシン向け）</h2>
+<p>上記の <tt class="docutils literal">README_krs.md</tt> の手順で作成したDockerコンテナの中で、以下を実行する。</p>
+<div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$HOME</span>/krs_ws
+colcon build --merge-install
+</pre></div>
+</div>
+<div class="section" id="id4">
+<h2>ハードウェアプラットフォームファイル</h2>
+<p>FPGAバイナリ（ <tt class="docutils literal">xclbin</tt> ファイル）の生成には、プラットフォームファイル（ <tt class="docutils literal">xpfm</tt> ファイル）と、そこから参照されるハードウェアプラットフォームファイル（ <tt class="docutils literal">xsa</tt> ファイル）が必要となる。
+これらのファイルは <a class="reference external" href="https://github.com/ros-acceleration/acceleration_firmware_kv260/tree/v1.0.0#hardware-acceleration-capabilities">acceleration_firmware_kv260</a> パッケージに含まれている。
+後述する <tt class="docutils literal">colcon build</tt> の後に、KRSのワークスペースの中に展開される。
+KRSのワークスペースの中で確認した時の例を以下に示す。</p>
+<div class="highlight"><pre><span></span>$ ls acceleration/firmware/kv260/platform/*
+acceleration/firmware/kv260/platform/kv260_custom_platform.xpfm
+
+acceleration/firmware/kv260/platform/hw:
+kv260_hardware_platform.xsa
+
+acceleration/firmware/kv260/platform/sw:
+kv260_custom_platform  kv260_custom_platform.spfm
+</pre></div>
+<p>余談だが、ソフトウェアプラットフォームファイル（ <tt class="docutils literal">spfm</tt> ファイル）も含まれていることがわかる。</p>
+</div>
+<div class="section" id="krs-kria-kv260">
+<h2>KRSのビルド（Kria KV260向け）</h2>
+<p>Dockerコンテナの中で以下のコマンドを実行して、KRSのパッケージ設定を読み込む。</p>
+<div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$HOME</span>/krs_ws
+<span class="nb">source</span> install/setup.bash
+</pre></div>
+<p>次に、Kria KV260向けにKRSをビルドする。
+まず、以下のコマンドを実行し、Kria KV260のファームウェアを選択する。</p>
+<div class="highlight"><pre><span></span>colcon acceleration <span class="k">select</span> kv260
+</pre></div>
+<p>以下のコマンドを実行し、Kria KV260のファームウェアが選択されていることを確認する。</p>
+<div class="highlight"><pre><span></span>$ colcon acceleration list
+kv260*
+</pre></div>
+<p>以下のコマンドを実行し、Kria KV260向けにKRSをビルドする。
+なお、FPGAバイナリのビルドを含むため時間がかかる。</p>
+<div class="highlight"><pre><span></span>colcon build <span class="se">\</span>
+  --build-base<span class="o">=</span>build-kv260 <span class="se">\</span>
+  --install-base<span class="o">=</span>install-kv260 <span class="se">\</span>
+  --merge-install <span class="se">\</span>
+  --mixin kv260 <span class="se">\</span>
+  --packages-select <span class="se">\</span>
+    ament_acceleration <span class="se">\</span>
+    ament_vitis <span class="se">\</span>
+    vitis_common <span class="se">\</span>
+    simple_adder <span class="se">\</span>
+    offloaded_doublevadd_publisher
+</pre></div>
+<p>以下のコマンドを実行し、Dockerコンテナの中でビルドしたKRSを、ホスト側にコピーする。</p>
+<div class="highlight"><pre><span></span>mkdir -p <span class="nv">$HOME</span>/output/krs_ws
+sudo cp -r -d acceleration <span class="nv">$HOME</span>/output/krs_ws/
+cp -r -d src <span class="nv">$HOME</span>/output/krs_ws/
+cp -r -d build-kv260 <span class="nv">$HOME</span>/output/krs_ws/
+cp -r -d install-kv260 <span class="nv">$HOME</span>/output/krs_ws/
+</pre></div>
+<p>ホスト側で以下を実行し、ファームウェアの所有者を変更する。</p>
+<div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$HOME</span>/output/krs_ws/
+sudo chown -R <span class="nv">$USER</span> acceleration
+</pre></div>
+</div>
+<div class="section" id="id5">
+<h2>イメージの作成</h2>
+<p>イメージの作成には、<a class="reference external" href="https://github.com/Xilinx/imagebuilder">imagebuilder</a> を使用している。
+imagebuilderはループデバイスを使用する。
+そのため、イメージの作成はDockerコンテナの中で完結することが難しい。
+Dockerコンテナの外でイメージを作成する。</p>
+<p><tt class="docutils literal">colcon</tt> を使用するために、ホスト側で以下を実行する。</p>
+<div class="highlight"><pre><span></span>sudo apt install -y <span class="se">\</span>
+  python3-colcon-argcomplete <span class="se">\</span>
+  python3-colcon-bash <span class="se">\</span>
+  python3-colcon-cd <span class="se">\</span>
+  python3-colcon-cmake <span class="se">\</span>
+  python3-colcon-common-extensions <span class="se">\</span>
+  python3-colcon-core <span class="se">\</span>
+  python3-colcon-defaults <span class="se">\</span>
+  python3-colcon-devtools <span class="se">\</span>
+  python3-colcon-library-path <span class="se">\</span>
+  python3-colcon-metadata <span class="se">\</span>
+  python3-colcon-mixin <span class="se">\</span>
+  python3-colcon-notification <span class="se">\</span>
+  python3-colcon-output <span class="se">\</span>
+  python3-colcon-package-information <span class="se">\</span>
+  python3-colcon-package-selection <span class="se">\</span>
+  python3-colcon-parallel-executor <span class="se">\</span>
+  python3-colcon-pkg-config <span class="se">\</span>
+  python3-colcon-powershell <span class="se">\</span>
+  python3-colcon-python-setup-py <span class="se">\</span>
+  python3-colcon-recursive-crawl <span class="se">\</span>
+  python3-colcon-ros <span class="se">\</span>
+  python3-colcon-test-result <span class="se">\</span>
+  python3-colcon-zsh
+</pre></div>
+<p>以下のコマンドを実行し、KRSをビルドする。
+なお、Vitisの <tt class="docutils literal">cmake</tt> が使用されることを回避するために <tt class="docutils literal">PATH</tt> を変更する。</p>
+<div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$HOME</span>/output/krs_ws/
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/usr/bin:<span class="nv">$PATH</span>
+colcon build <span class="se">\</span>
+  --merge-install <span class="se">\</span>
+  --packages-select colcon-hardware-acceleration
+</pre></div>
+<p>以下のコマンドを実行して、KRSのパッケージ設定を読み込む。</p>
+<div class="highlight"><pre><span></span><span class="nb">source</span> install/setup.bash
+</pre></div>
+<p>次に、Kria KV260向けにKRSをビルドする。
+以下のコマンドを実行し、Kria KV260のファームウェアを選択する。</p>
+<div class="highlight"><pre><span></span>unlink acceleration/firmware/select
+colcon acceleration <span class="k">select</span> kv260
+</pre></div>
+<p>必要に応じて以下のコマンドを実行し、 <tt class="docutils literal">BOOT.bin</tt> のシンボリックリンクを変更する。</p>
+<div class="highlight"><pre><span></span><span class="nv">BOOT_PATH</span><span class="o">=</span><span class="sb">`</span>readlink acceleration/firmware/select/BOOT.BIN <span class="p">|</span> sed <span class="s1">&#39;s/.*krs_ws\///g&#39;</span><span class="sb">`</span>
+unlink acceleration/firmware/kv260/BOOT.BIN
+ln -s <span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/<span class="si">${</span><span class="nv">BOOT_PATH</span><span class="si">}</span> acceleration/firmware/kv260/BOOT.BIN
+</pre></div>
+<p>以下のコマンドを実行し、イメージを作成する。</p>
+<div class="highlight"><pre><span></span><span class="nv">LANG</span><span class="o">=</span>C
+colcon acceleration linux vanilla --install-dir install-kv260
+</pre></div>
+<p><tt class="docutils literal">acceleration/firmware/kv260/sd_card.img</tt> が作成されていることを確認する。</p>
+<div class="highlight"><pre><span></span>$ fdisk -l acceleration/firmware/kv260/sd_card.img
+Disk acceleration/firmware/kv260/sd_card.img: <span class="m">4</span>.24 GiB, <span class="m">4548722688</span> bytes, <span class="m">8884224</span> sectors
+Units: sectors of <span class="m">1</span> * <span class="nv">512</span> <span class="o">=</span> <span class="m">512</span> bytes
+Sector size <span class="o">(</span>logical/physical<span class="o">)</span>: <span class="m">512</span> bytes / <span class="m">512</span> bytes
+I/O size <span class="o">(</span>minimum/optimal<span class="o">)</span>: <span class="m">512</span> bytes / <span class="m">512</span> bytes
+Disklabel type: dos
+Disk identifier: 0xeba4fad3
+
+Device                                   Boot   Start     End Sectors  Size Id Type
+acceleration/firmware/kv260/sd_card.img1 *       <span class="m">2048</span> <span class="m">1120255</span> <span class="m">1118208</span>  546M  c W95 FAT32 <span class="o">(</span>LBA<span class="o">)</span>
+acceleration/firmware/kv260/sd_card.img2      <span class="m">1120256</span> <span class="m">8853503</span> <span class="m">7733248</span>  <span class="m">3</span>.7G <span class="m">83</span> Linux
+</pre></div>
+</div>
+<div class="section" id="microsd">
+<h2>microSDカードにイメージを焼く</h2>
+<p>以下のコマンドを実行し、microSDカードをフォーマットする。
+フォーマットすると、microSDカード上のデータは全て消去される。
+ここでは、microSDカードのデバイスパスは <tt class="docutils literal">/dev/sda</tt> であるとする。</p>
+<div class="highlight"><pre><span></span>sudo <span class="nv">XAUTHORITY</span><span class="o">=</span>~/.Xauthority gparted
+</pre></div>
+<p>右上のプルダウンから <tt class="docutils literal">/dev/sda</tt> を選択し、全てのパーティションを消去し、チェックマークを押してフォーマットを実行する。
+完了したら閉じる。</p>
+<p>以下のコマンドを実行し、イメージを焼く。</p>
+<div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$HOME</span>/output/krs_ws/acceleration/firmware/kv260/
+sudo dd <span class="k">if</span><span class="o">=</span>sd_card.img <span class="nv">of</span><span class="o">=</span>/dev/sda <span class="nv">bs</span><span class="o">=</span>1M <span class="nv">status</span><span class="o">=</span>progress
+</pre></div>
+</div>
+<div class="section" id="id6">
+<h2>デバイスツリーの差し替え</h2>
+<p>KRSで作成されるイメージのブート領域の中身は以下のようになっている。</p>
+<ul class="simple">
+<li>BOOT.BIN</li>
+<li>Image</li>
+<li>boot.scr</li>
+<li>ramdisk.cpio.gz.u-boot</li>
+<li>system.dtb</li>
+</ul>
+<p>このうち、デバイスツリーである <tt class="docutils literal">system.dtb</tt> が <a class="reference external" href="https://github.com/ros-acceleration/acceleration_firmware_kv260/releases/tag/v1.0.0">acceleration_firmware_kv260 v1.0.0</a> の時点で不整合を起こしている。
+このままだと、PetaLinuxの起動時に以下のようなエラーが出て起動に失敗する。</p>
+<div class="highlight"><pre><span></span>Waiting <span class="k">for</span> /dev/mmcblk1p2 to pop up <span class="o">(</span>attempt <span class="m">25</span><span class="o">)</span>
+Waiting <span class="k">for</span> /dev/mmcblk1p2 to pop up <span class="o">(</span>attempt <span class="m">26</span><span class="o">)</span>
+Waiting <span class="k">for</span> /dev/mmcblk1p2 to pop up <span class="o">(</span>attempt <span class="m">27</span><span class="o">)</span>
+Waiting <span class="k">for</span> /dev/mmcblk1p2 to pop up <span class="o">(</span>attempt <span class="m">28</span><span class="o">)</span>
+Waiting <span class="k">for</span> /dev/mmcblk1p2 to pop up <span class="o">(</span>attempt <span class="m">29</span><span class="o">)</span>
+Waiting <span class="k">for</span> /dev/mmcblk1p2 to pop up <span class="o">(</span>attempt <span class="m">30</span><span class="o">)</span>
+Device /dev/mmcblk1p2 not found
+udhcpc: SIOCGIFINDEX: No such device
+ERROR: There<span class="s1">&#39;s no &#39;</span>/dev<span class="s1">&#39; on rootfs.</span>
+
+<span class="s1">sh: can&#39;</span>t access tty<span class="p">;</span> job control turned off
+</pre></div>
+<p>これを回避するために、 <tt class="docutils literal">system.dtb</tt> を差し替える。</p>
+<p><a class="reference external" href="https://npz35.github.io/blog/archive/2022/09/petalinux-tools-docker/">PetaLinux ToolsをDockerコンテナに閉じる</a> の手順で作成した <tt class="docutils literal">system.dtb</tt> を用意する必要がある。</p>
+<p>上記のイメージを焼いたmicroSDカードを開発マシンに接続する。
+ここでは、microSDカードのデバイスパスは <tt class="docutils literal">/dev/sda</tt> であるとする。
+以下のコマンドを実行し、microSDカードの第一パーティションをマウントする。</p>
+<div class="highlight"><pre><span></span>sudo mkdir -p /media/BOOT
+sudo mount /dev/sda1 /media/BOOT
+</pre></div>
+<p>以下のコマンドを実行し、PetaLinux Toolsで生成した <tt class="docutils literal">system.dtb</tt> で上書きする。</p>
+<div class="highlight"><pre><span></span>sudo cp system.dtb /media/BOOT/
+</pre></div>
+<p>以下のコマンドを実行し、microSDカードをアンマウントする。</p>
+<div class="highlight"><pre><span></span>sudo umount /media/BOOT/
+sudo eject /dev/sda
+</pre></div>
+</div>
+
+        </div>
+
+        <!-- Neighbors -->
+
+        <!-- Google Adsense -->
+
+    <!-- Releated posts -->
+
+    <!-- Comments -->
+                </div>
+        </main>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="flex-shrink-0 bg-dark text-light small py-1">
+        <div class="container text-center">
+            &copy; 2022 <a href="../../../..">メガバイト置き場</a> by <a href="../../../../pages/about.html">npz35</a>. Powered by <a href="http://getpelican.com">Pelican</a>, <a href="http://python.org">Python</a>, <a href="https://getbootstrap.com">Bootstrap 4</a><br>
+            <!-- Do not remove below license sentence -->
+            License: <a href="https://spdx.org/licenses/CC-BY-4.0.html">CC-BY-4.0</a>, based on <a href="https://github.com/vuquangtrong/simplify-theme">Simplify Bootstrap Theme</a>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!--
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    -->
+    <script type="text/javascript" src="../../../../theme/jquery/jquery-3.4.1.min.js"></script>
+    <!--
+    <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/4.3.1/bootstrap.min.js"></script>
+    -->
+    <script type="text/javascript" src="../../../../theme/bootstrap/bootstrap.min.js"></script>
+    <!--
+    <script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script>
+    -->
+    <script type="text/javascript" src="../../../../theme/style.js"></script>
+
+    <!-- Sharing -->
+
+    <!-- JSON LD -->
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "name": "KRSをDockerコンテナに閉じる",
+    "headline": "KRSをDockerコンテナに閉じる",
+    "datePublished": "2022-09-11 17:00:00+09:00",
+    "dateModified": "2022-09-11 17:00:00+09:00",
+    "author": {
+        "@type": "Person",
+        "name": "npz35",
+        "url": "../../../../author/npz35.html"
+    },
+    "image": "../../../../favicon.ico",
+    "url": "../../../../archive/2022/09/krs-docker/",
+    "description": "KRSをビルドするために環境を汚したくないため、Dockerコンテナに閉じたい。 というわけで、Dockerfileを作成し、Kria KV260向けのKRSをビ …"
+}
+</script>
+    <!-- Disqus count -->
+</body>
+
+</html>
