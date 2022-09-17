@@ -5,7 +5,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://npz35.github.io/blog/</loc>
-<lastmod>2022-09-16T20:35:17-00:00</lastmod>
+<lastmod>2022-09-17T10:35:20-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -18,43 +18,64 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>https://npz35.github.io/blog/pages/profile.html</loc>
+<lastmod>2022-09-16T21:00:00+09:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://npz35.github.io/blog/archive/2022/09/profile/</loc>
+<lastmod>2022-09-16T21:00:00+09:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>https://npz35.github.io/blog/archive/2022/09/krs-report/</loc>
 <lastmod>2022-09-11T23:10:00+09:00</lastmod>
-<changefreq>daily</changefreq>
+<changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://npz35.github.io/blog/archive/2022/09/krs-launch-test/</loc>
 <lastmod>2022-09-11T23:00:00+09:00</lastmod>
-<changefreq>daily</changefreq>
+<changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://npz35.github.io/blog/archive/2022/09/krs-test/</loc>
 <lastmod>2022-09-11T22:00:00+09:00</lastmod>
-<changefreq>daily</changefreq>
+<changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://npz35.github.io/blog/archive/2022/09/krs-docker/</loc>
 <lastmod>2022-09-11T17:00:00+09:00</lastmod>
-<changefreq>daily</changefreq>
+<changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://npz35.github.io/blog/archive/2022/09/petalinux-tools-docker/</loc>
 <lastmod>2022-09-11T16:00:00+09:00</lastmod>
-<changefreq>daily</changefreq>
+<changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://npz35.github.io/blog/archive/2022/09/policy/</loc>
 <lastmod>2022-09-16T20:30:00+09:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://npz35.github.io/blog/category/profile.html</loc>
+<lastmod>2022-09-16T21:00:00+09:19</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -103,7 +124,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://npz35.github.io/blog/author/npz35.html</loc>
-<lastmod>2022-09-16T20:30:00+09:19</lastmod>
+<lastmod>2022-09-16T21:00:00+09:19</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
