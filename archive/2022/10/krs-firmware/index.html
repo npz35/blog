@@ -22,7 +22,7 @@
 <meta property="og:url" content="../../../../archive/2022/10/krs-firmware/" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-10-04 22:00:00+09:00" />
-<meta property="article:modified_time" content="2022-10-04 22:00:00+09:00" />
+<meta property="article:modified_time" content="2022-10-16 15:50:00+09:00" />
 <meta property="article:author" content="../../../../author/npz35.html">
 <meta property="article:section" content="Xilinx" />
 	<meta property="article:tag" content="Kria Robotic Stack" />
@@ -232,7 +232,7 @@
                 <span class="card-link text-success">
                     <span class="post-date" title="Post date">Tue 04 October 2022</span>
                     <span class="text-info modified-date" title="Updated date">
-                            Tue 04 October 2022
+                            Sun 16 October 2022
                     </span>
                 </span>
             </div>
@@ -301,7 +301,8 @@
 <div class="highlight"><pre><span></span>petalinux-config --component rootfs
 </pre></div>
 <p><tt class="docutils literal">user packages</tt> を選択して、必要な項目を有効化することでPetaLinuxイメージに含めることができる。
-ここでは <a class="reference external" href="https://github.com/npz35/vitis_tutorial/blob/0.1.0/user-rootfsconfig">vitis_tutorial/user-rootfsconfig</a> を使用して、全て有効化すればよい。</p>
+ここでは <a class="reference external" href="https://github.com/npz35/vitis_tutorial/blob/0.1.0/user-rootfsconfig">vitis_tutorial/user-rootfsconfig</a> を使用して、全て有効化すればよい。
+また、 <tt class="docutils literal">gcc</tt> <tt class="docutils literal">g++</tt> <tt class="docutils literal">swig</tt> も必要なので有効化する。</p>
 <p>なお、 <tt class="docutils literal"><span class="pre">python3-bt2</span></tt> 、 <tt class="docutils literal"><span class="pre">python3-tk</span></tt> 、 <tt class="docutils literal"><span class="pre">python3-wasabi</span></tt> についても設定を追加し有効化した場合には、ビルド時に以下のエラーが出た。</p>
 <div class="highlight"><pre><span></span>ERROR: Nothing RPROVIDES <span class="s1">&#39;python3-bt2&#39;</span> <span class="o">(</span>but /home/np/xilinx-kv260-starterkit-2022.1/components/yocto/layers/meta-petalinux/recipes-core/images/petalinux-image-minimal.bb RDEPENDS on or otherwise requires it<span class="o">)</span>
 NOTE: Runtime target <span class="s1">&#39;python3-bt2&#39;</span> is unbuildable, removing...
@@ -411,23 +412,25 @@ grep -rn -l <span class="s1">&#39;\/scratch\/jenkins-BUILDS-eSDK-2022.1_stable-p
 なお、KRSで作成したPetaLinuxイメージをmicroSDカードに焼いた後に、以下の作業が必要となる。
 ここで、microSDカードの第二パーティションのデバイスパスは <tt class="docutils literal">/dev/sdb2</tt> としている。
 また <tt class="docutils literal">cp</tt> コマンドの引数が長くなりすぎるとエラーになるため、パターンを指定して <tt class="docutils literal"><span class="pre">${SDK_SYSROOT}/usr/lib</span></tt> のコピーを複数回に分けている。</p>
-<div class="highlight"><pre><span></span>sudo mkdir -p /mnt/rootfs
+<div class="highlight"><pre><span></span><span class="nv">SDK_SYSROOT</span><span class="o">=</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/output/krs_wsacceleration/firmware/kv260/sysroots/cortexa72-cortexa53-xilinx-linux
+
+sudo mkdir -p /mnt/rootfs
 sudo mount /dev/sdb2 /mnt/rootfs
-sudo cp -r \
-  ${SDK_SYSROOT}/usr/lib/python3.9/site-packages/cv_bridge* \
-  ${SDK_SYSROOT}/usr/lib/python3.9/site-packages/image_geometry* \
-  ${SDK_SYSROOT}/usr/lib/python3.9/site-packages/ros2trace* \
-  ${SDK_SYSROOT}/usr/lib/python3.9/site-packages/tracetools_launch* \
-  ${SDK_SYSROOT}/usr/lib/python3.9/site-packages/tracetools_trace* \
+sudo cp -r <span class="se">\</span>
+  <span class="si">${</span><span class="nv">SDK_SYSROOT</span><span class="si">}</span>/usr/lib/python3.9/site-packages/cv_bridge* <span class="se">\</span>
+  <span class="si">${</span><span class="nv">SDK_SYSROOT</span><span class="si">}</span>/usr/lib/python3.9/site-packages/image_geometry* <span class="se">\</span>
+  <span class="si">${</span><span class="nv">SDK_SYSROOT</span><span class="si">}</span>/usr/lib/python3.9/site-packages/ros2trace* <span class="se">\</span>
+  <span class="si">${</span><span class="nv">SDK_SYSROOT</span><span class="si">}</span>/usr/lib/python3.9/site-packages/tracetools_launch* <span class="se">\</span>
+  <span class="si">${</span><span class="nv">SDK_SYSROOT</span><span class="si">}</span>/usr/lib/python3.9/site-packages/tracetools_trace* <span class="se">\</span>
   /mnt/rootfs/usr/lib/python3.9/site-packages/
-sudo cp -r --no-clobber ${SDK_SYSROOT}/usr/share/*       /mnt/rootfs/usr/share/
-sudo cp -r --no-clobber ${SDK_SYSROOT}/usr/lib/[a-k]*    /mnt/rootfs/usr/lib/
-sudo cp -r --no-clobber ${SDK_SYSROOT}/usr/lib/l[^i]*    /mnt/rootfs/usr/lib/
-sudo cp -r --no-clobber ${SDK_SYSROOT}/usr/lib/lib[a-n]* /mnt/rootfs/usr/lib/
-sudo cp -r --no-clobber ${SDK_SYSROOT}/usr/lib/lib[o-z]* /mnt/rootfs/usr/lib/
-sudo cp -r --no-clobber ${SDK_SYSROOT}/usr/lib/[m-z]*    /mnt/rootfs/usr/lib/
-sudo cp -r --no-clobber ${SDK_SYSROOT}/usr/include/*     /mnt/rootfs/usr/include/
-sudo cp -r --no-clobber ${SDK_SYSROOT}/usr/bin/*         /mnt/rootfs/usr/bin/
+sudo cp -r --no-clobber <span class="si">${</span><span class="nv">SDK_SYSROOT</span><span class="si">}</span>/usr/share/*       /mnt/rootfs/usr/share/
+sudo cp -r --no-clobber <span class="si">${</span><span class="nv">SDK_SYSROOT</span><span class="si">}</span>/usr/lib/<span class="o">[</span>a-k<span class="o">]</span>*    /mnt/rootfs/usr/lib/
+sudo cp -r --no-clobber <span class="si">${</span><span class="nv">SDK_SYSROOT</span><span class="si">}</span>/usr/lib/l<span class="o">[</span>^i<span class="o">]</span>*    /mnt/rootfs/usr/lib/
+sudo cp -r --no-clobber <span class="si">${</span><span class="nv">SDK_SYSROOT</span><span class="si">}</span>/usr/lib/lib<span class="o">[</span>a-n<span class="o">]</span>* /mnt/rootfs/usr/lib/
+sudo cp -r --no-clobber <span class="si">${</span><span class="nv">SDK_SYSROOT</span><span class="si">}</span>/usr/lib/lib<span class="o">[</span>o-z<span class="o">]</span>* /mnt/rootfs/usr/lib/
+sudo cp -r --no-clobber <span class="si">${</span><span class="nv">SDK_SYSROOT</span><span class="si">}</span>/usr/lib/<span class="o">[</span>m-z<span class="o">]</span>*    /mnt/rootfs/usr/lib/
+sudo cp -r --no-clobber <span class="si">${</span><span class="nv">SDK_SYSROOT</span><span class="si">}</span>/usr/include/*     /mnt/rootfs/usr/include/
+sudo cp -r --no-clobber <span class="si">${</span><span class="nv">SDK_SYSROOT</span><span class="si">}</span>/usr/bin/*         /mnt/rootfs/usr/bin/
 sync
 sudo umount /mnt/rootfs
 sudo eject /dev/sdb
@@ -488,7 +491,7 @@ sudo eject /dev/sdb
     "name": "KRSのファームウェアを用意する",
     "headline": "KRSのファームウェアを用意する",
     "datePublished": "2022-10-04 22:00:00+09:00",
-    "dateModified": "2022-10-04 22:00:00+09:00",
+    "dateModified": "2022-10-16 15:50:00+09:00",
     "author": {
         "@type": "Person",
         "name": "npz35",
