@@ -22,7 +22,7 @@
 <meta property="og:url" content="../../../../archive/2022/10/krs-lttng/" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-10-08 20:00:00+09:00" />
-<meta property="article:modified_time" content="2022-10-08 20:00:00+09:00" />
+<meta property="article:modified_time" content="2022-10-17 09:40:00+09:00" />
 <meta property="article:author" content="../../../../author/npz35.html">
 <meta property="article:section" content="Xilinx" />
 	<meta property="article:tag" content="Kria Robotic Stack" />
@@ -232,7 +232,7 @@
                 <span class="card-link text-success">
                     <span class="post-date" title="Post date">Sat 08 October 2022</span>
                     <span class="text-info modified-date" title="Updated date">
-                            Sat 08 October 2022
+                            Mon 17 October 2022
                     </span>
                 </span>
             </div>
@@ -367,7 +367,7 @@ ros2 launch perception_2nodes trace_rectify_resize.launch.py
 <div class="highlight"><pre><span></span><span class="nb">source</span> /opt/ros/foxy/setup.bash
 ros2 run rqt_graph rqt_graph
 </pre></div>
-<img alt="rqt_graph" src="../../../../archive/2022/10/krs-lttng/krs-lttng/rqt_graph_cpu.png" />
+<img alt="rqt_graph" src="../../../../archive/2022/10/krs-lttng/krs-lttng/rqt_graph_cpu.png" style="width: 750px;" />
 <p>Kria KV260上で、出力画像がどのぐらいのフレームレートで配信されているのかを確認する。</p>
 <div class="highlight"><pre><span></span>ros2 topic hz /resize/resize
 </pre></div>
@@ -383,7 +383,7 @@ ros2 run rqt_graph rqt_graph
 <div class="highlight"><pre><span></span><span class="nb">source</span> /opt/ros/foxy/setup.bash
 ros2 run rqt_graph rqt_graph
 </pre></div>
-<img alt="rqt_graph" src="../../../../archive/2022/10/krs-lttng/krs-lttng/rqt_graph_fpga.png" />
+<img alt="rqt_graph" src="../../../../archive/2022/10/krs-lttng/krs-lttng/rqt_graph_fpga.png" style="width: 750px;" />
 <p>デスクトップマシン上で、出力画像がどのぐらいのフレームレートで配信されているのかを確認する。</p>
 <div class="highlight"><pre><span></span>ros2 topic hz /resize
 </pre></div>
@@ -396,7 +396,7 @@ ros2 run rqt_graph rqt_graph
 <div class="highlight"><pre><span></span><span class="nb">source</span> /opt/ros/foxy/setup.bash
 ros2 run rqt_graph rqt_graph
 </pre></div>
-<img alt="rqt_graph" src="../../../../archive/2022/10/krs-lttng/krs-lttng/rqt_graph_fpga_integrated.png" />
+<img alt="rqt_graph" src="../../../../archive/2022/10/krs-lttng/krs-lttng/rqt_graph_fpga_integrated.png" style="width: 750px;" />
 <p>デスクトップマシン上で、出力画像がどのぐらいのフレームレートで配信されているのかを確認する。</p>
 <div class="highlight"><pre><span></span>ros2 topic hz /resize
 </pre></div>
@@ -409,7 +409,7 @@ ros2 run rqt_graph rqt_graph
 <div class="highlight"><pre><span></span><span class="nb">source</span> /opt/ros/foxy/setup.bash
 ros2 run rqt_graph rqt_graph
 </pre></div>
-<img alt="rqt_graph" src="../../../../archive/2022/10/krs-lttng/krs-lttng/rqt_graph_fpga_streamlined.png" />
+<img alt="rqt_graph" src="../../../../archive/2022/10/krs-lttng/krs-lttng/rqt_graph_fpga_streamlined.png" style="width: 750px;" />
 <p>デスクトップマシン上で、出力画像がどのぐらいのフレームレートで配信されているのかを確認する。</p>
 <div class="highlight"><pre><span></span>ros2 topic hz /resize
 </pre></div>
@@ -432,7 +432,7 @@ ros2 run rqt_graph rqt_graph
 </pre></div>
 <p>グラフの描画結果が <tt class="docutils literal">/tmp/benchmarkintegrated_only.png</tt> に出力される。
 例を以下に示す。</p>
-<img alt="計測結果のグラフ" src="../../../../archive/2022/10/krs-lttng/krs-lttng/benchmarkintegrated_only.png" />
+<img alt="計測結果のグラフ" src="../../../../archive/2022/10/krs-lttng/krs-lttng/benchmarkintegrated_only.png" style="width: 750px;" />
 <p><a class="reference external" href="https://xilinx.github.io/KRS/sphinx/build/html/docs/examples/6_perception.html">公式</a> に記載されている結果とは結構違う。
 おそらく、公式の手順ではGazeboもKria KV260上で実行しているためだと思われる。</p>
 <p>また、無関係な処理の負荷を減らすために <tt class="docutils literal">rqt_image_view</tt> ではなく <tt class="docutils literal">ros2 topic hz</tt> で出力を確認したため、その点が影響した可能性もある。</p>
@@ -502,7 +502,7 @@ ros2 run rqt_graph rqt_graph
     "name": "KRSのサンプルプログラムを計測する",
     "headline": "KRSのサンプルプログラムを計測する",
     "datePublished": "2022-10-08 20:00:00+09:00",
-    "dateModified": "2022-10-08 20:00:00+09:00",
+    "dateModified": "2022-10-17 09:40:00+09:00",
     "author": {
         "@type": "Person",
         "name": "npz35",
