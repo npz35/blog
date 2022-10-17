@@ -361,8 +361,8 @@ ros2 launch perception_2nodes trace_rectify_resize.launch.py
 <span class="c1"># ros2 launch perception_2nodes trace_rectify_resize_fpga_integrated.launch.py</span>
 <span class="c1"># ros2 launch perception_2nodes trace_rectify_resize_fpga_streamlined.launch.py</span>
 </pre></div>
-<div class="section" id="trace-rectify-resize-launch-py">
-<h3><tt class="docutils literal">trace_rectify_resize.launch.py</tt> の場合</h3>
+<div class="section" id="cpu">
+<h3>CPU実装の場合</h3>
 <p>デスクトップマシン上で、以下のコマンドで <tt class="docutils literal">rqt_graph</tt> を確認した結果を記載する。</p>
 <div class="highlight"><pre><span></span><span class="nb">source</span> /opt/ros/foxy/setup.bash
 ros2 run rqt_graph rqt_graph
@@ -377,8 +377,8 @@ ros2 run rqt_graph rqt_graph
 <div class="highlight"><pre><span></span>du -sh <span class="nv">$HOME</span>/.ros/tracing/*
 </pre></div>
 </div>
-<div class="section" id="trace-rectify-resize-fpga-launch-py">
-<h3><tt class="docutils literal">trace_rectify_resize_fpga.launch.py</tt> の場合</h3>
+<div class="section" id="fpga">
+<h3>FPGA実装の場合</h3>
 <p>デスクトップマシン上で、以下のコマンドで <tt class="docutils literal">rqt_graph</tt> を確認した結果を記載する。</p>
 <div class="highlight"><pre><span></span><span class="nb">source</span> /opt/ros/foxy/setup.bash
 ros2 run rqt_graph rqt_graph
@@ -389,8 +389,8 @@ ros2 run rqt_graph rqt_graph
 </pre></div>
 <p>前節と同様にトレース情報を取得してlaunchを終了した。</p>
 </div>
-<div class="section" id="trace-rectify-resize-fpga-integrated-launch-py">
-<h3><tt class="docutils literal">trace_rectify_resize_fpga_integrated.launch.py</tt> の場合</h3>
+<div class="section" id="integrated">
+<h3><tt class="docutils literal">integrated</tt> の場合</h3>
 <p>事前にコンフィギュレーションコードは <tt class="docutils literal">image_proc_integrated</tt> をロードする必要がある。</p>
 <p>デスクトップマシン上で、以下のコマンドで <tt class="docutils literal">rqt_graph</tt> を確認した結果を記載する。</p>
 <div class="highlight"><pre><span></span><span class="nb">source</span> /opt/ros/foxy/setup.bash
@@ -402,8 +402,8 @@ ros2 run rqt_graph rqt_graph
 </pre></div>
 <p>前節と同様にトレース情報を取得してlaunchを終了した。</p>
 </div>
-<div class="section" id="trace-rectify-resize-fpga-streamlined-launch-py">
-<h3><tt class="docutils literal">trace_rectify_resize_fpga_streamlined.launch.py</tt> の場合</h3>
+<div class="section" id="streamlined">
+<h3><tt class="docutils literal">streamlined</tt> の場合</h3>
 <p>事前にコンフィギュレーションコードは <tt class="docutils literal">image_proc_streamlined</tt> をロードする必要がある。</p>
 <p>デスクトップマシン上で、以下のコマンドで <tt class="docutils literal">rqt_graph</tt> を確認した結果を記載する。</p>
 <div class="highlight"><pre><span></span><span class="nb">source</span> /opt/ros/foxy/setup.bash
