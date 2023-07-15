@@ -12,19 +12,35 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
         <!-- Default metadata -->
-            <meta name="author" content="npz35" />
-            <meta name="description" content="npz35の雑記" />
+    <meta name="author" content="npz35" />
+    <meta name="description" content="2023年5月にVivado/Vitis/Vitis HLS 2023.1がリリースされていたらしい。 Vivado/Vitis/Vitis HLS 2023.1をインストールする。 また、SFD（Single File Download）を事前にダ …" />
+    <meta name="keywords" content="Vivado, Vitis, Vitis HLS">
+<meta property="og:site_name" content="メガバイト置き場" />
+<meta property="og:title" content="Vivado/Vitis/Vitis HLS 2023.1をインストールする" />
+<meta property="og:description" content="2023年5月にVivado/Vitis/Vitis HLS 2023.1がリリースされていたらしい。 Vivado/Vitis/Vitis HLS 2023.1をインストールする。 また、SFD（Single File Download）を事前にダ …" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="../../../../archive/2023/07/vitis-2023.1/" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-07-15 21:00:00+09:00" />
+<meta property="article:modified_time" content="2023-07-15 22:18:41.287768+09:00" />
+<meta property="article:author" content="../../../../author/npz35.html">
+<meta property="article:section" content="Xilinx" />
+	<meta property="article:tag" content="Vivado" />
+	<meta property="article:tag" content="Vitis" />
+	<meta property="article:tag" content="Vitis HLS" />
+	<meta property="og:image" content="../../../../">
 
         <!-- Site Claim -->
 
 
         <!-- Title -->
         <title>
-メガバイト置き場 - Authors        </title>
+    Vivado/Vitis/Vitis HLS 2023.1をインストールする &ndash; メガバイト置き場
+        </title>
         
         <!-- Icon -->
-        <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
-        <link rel="icon" href="./favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../../../../favicon.ico" type="image/x-icon">
+        <link rel="icon" href="../../../../favicon.ico" type="image/x-icon">
 
         <!-- Search engine -->
             <meta name="robots" content="index, follow" />
@@ -42,15 +58,15 @@
         <!--
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/4.3.1/css/bootstrap.min.css">
         -->
-        <link rel="stylesheet" href="./theme/bootstrap/bootstrap.min.css">
+        <link rel="stylesheet" href="../../../../theme/bootstrap/bootstrap.min.css">
         <!--
         <link rel="stylesheet" href="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.css">
         -->
-        <link rel="stylesheet" href="./theme/pygment/friendly.min.css">
+        <link rel="stylesheet" href="../../../../theme/pygment/friendly.min.css">
         <!--
-        <link rel="stylesheet" href="./theme/extra/admonition.min.css">
+        <link rel="stylesheet" href="../../../../theme/extra/admonition.min.css">
         -->
-        <link rel="stylesheet" href="./theme/style.css">
+        <link rel="stylesheet" href="../../../../theme/style.css">
 
         <!-- Google Analytics -->
 
@@ -97,7 +113,7 @@
     <!-- Navigation -->
     <nav class="flex-shrink-0 navbar navbar-expand-md navbar-expand-lg navbar-dark bg-dark text-light shadow-sm">
         <!-- Logo -->
-        <a class="navbar-brand" href=".">メガバイト置き場</a>
+        <a class="navbar-brand" href="../../../..">メガバイト置き場</a>
 
         <!-- Collapse button -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -109,7 +125,7 @@
             <!-- Page links -->
             <ul class="navbar-nav mr-auto text-center">
                 <li class="nav-item ">                           
-                    <a class="nav-link" href=".">
+                    <a class="nav-link" href="../../../..">
                         <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24">
                             <path d="M21 13v10h-6v-6h-6v6h-6v-10h-3l12-12 12 12h-3zm-1-5.907v-5.093h-3v2.093l3 3z" fill="currentColor"></path>
                         </svg>
@@ -117,7 +133,7 @@
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="./categories.html">
+                    <a class="nav-link" href="../../../../categories.html">
                         <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24">
                             <path d="M16 6h-8v-6h8v6zm-8 12h-8v6h8v-6zm16 0h-8v6h8v-6zm-11-7v-3h-2v3h-8v5h2v-3h14v3h2v-5h-8z" fill="currentColor"></path>
                         </svg>
@@ -125,7 +141,7 @@
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="./tags.html">
+                    <a class="nav-link" href="../../../../tags.html">
                         <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24">
                             <path d="M10.605 0h-10.605v10.609l13.391 13.391 10.609-10.604-13.395-13.396zm-4.191 6.414c-.781.781-2.046.781-2.829.001-.781-.783-.781-2.048 0-2.829.782-.782 2.048-.781 2.829-.001.782.782.781 2.047 0 2.829z" fill="currentColor"></path>
                         </svg>
@@ -133,7 +149,7 @@
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="./archives.html">
+                    <a class="nav-link" href="../../../../archives.html">
                         <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24">
                             <path d="M1.8 9l-.8-4h22l-.8 4h-2.029l.39-2h-17.122l.414 2h-2.053zm18.575-6l.604-2h-17.979l.688 2h16.687zm3.625 8l-2 13h-20l-2-13h24zm-8 4c0-.552-.447-1-1-1h-6c-.553 0-1 .448-1 1s.447 1 1 1h6c.553 0 1-.448 1-1z" fill="currentColor"></path>
                         </svg>
@@ -141,7 +157,7 @@
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="./pages/about.html">
+                    <a class="nav-link" href="../../../../pages/about.html">
                         <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24">
                             <path d="M20.822 18.096c-3.439-.794-6.64-1.49-5.09-4.418 4.72-8.912 1.251-13.678-3.732-13.678-5.082 0-8.464 4.949-3.732 13.678 1.597 2.945-1.725 3.641-5.09 4.418-3.073.71-3.188 2.236-3.178 4.904l.004 1h23.99l.004-.969c.012-2.688-.092-4.222-3.176-4.935z" fill="currentColor"></path>
                         </svg>
@@ -149,7 +165,7 @@
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="./pages/policy.html">
+                    <a class="nav-link" href="../../../../pages/policy.html">
                         <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24">
                             <path d="M20.822 18.096c-3.439-.794-6.64-1.49-5.09-4.418 4.72-8.912 1.251-13.678-3.732-13.678-5.082 0-8.464 4.949-3.732 13.678 1.597 2.945-1.725 3.641-5.09 4.418-3.073.71-3.188 2.236-3.178 4.904l.004 1h23.99l.004-.969c.012-2.688-.092-4.222-3.176-4.935z" fill="currentColor"></path>
                         </svg>
@@ -159,7 +175,7 @@
             </ul>
 
             <!-- Search form -->
-            <form class="form-inline text-center" action="./search.html">
+            <form class="form-inline text-center" action="../../../../search.html">
                 <input class="form-control w-100 bg-dark text-light text-center border-0 p-2" type="text" name="q" pattern=".{3,}" title="At least 3 characters" required="" placeholder="Type here to search" aria-label="Search">
             </form>
 
@@ -206,6 +222,29 @@
 
         <!-- Header -->
         <header class="bg-dark text-light shadow-sm pt-3 pb-2">
+	<div class="container">
+		<h3 id="vitis-2023.1">Vivado/Vitis/Vitis HLS 2023.1をインストールする</h3>
+		<p style="font-size:larger;"><p>2023年5月にVivado/Vitis/Vitis HLS 2023.1がリリースされていたらしい。
+Vivado/Vitis/Vitis HLS 2023.1をインストールする。
+また、SFD（Single File Download）を事前にダ …</p></p>
+        <div class="row mx-auto mt-3">
+            <div class="col-xs-12 col-sm-12 col-md-6 text-left" style="padding: 0">
+                <a href="../../../../author/npz35.html" class="card-link">npz35</a>
+                <span class="card-link text-success">
+                    <span class="post-date" title="Post date">Sat 15 July 2023</span>
+                    <span class="text-info modified-date" title="Updated date">
+                            Sat 15 July 2023
+                    </span>
+                </span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 text-right" style="padding: 0">
+                <a class="badge badge-success" href="../../../../category/xilinx.html">xilinx</a>
+                    <a class="badge badge-info" href="../../../../tag/vivado.html">vivado</a>
+                    <a class="badge badge-info" href="../../../../tag/vitis.html">vitis</a>
+                    <a class="badge badge-info" href="../../../../tag/vitis-hls.html">vitis hls</a>
+            </div>
+        </div>
+	</div>
         </header>
 
         <!-- Main -->
@@ -214,10 +253,108 @@
                     <!-- Sharing -->
 
                     <!-- Content -->
-    <h1>Authors on メガバイト置き場</h1>
-    <ul>
-        <li><a href="./author/npz35.html">npz35</a> (10)</li>
-    </ul>
+    <!-- 2 columns layout -->
+    <!-- single column layout -->
+        <!-- Sharing -->
+
+        <!-- Share post -->
+
+        <!-- Article -->
+        <div>
+            <p>2023年5月にVivado/Vitis/Vitis HLS 2023.1がリリースされていたらしい。
+Vivado/Vitis/Vitis HLS 2023.1をインストールする。
+また、SFD（Single File Download）を事前にダウンロードしておいてからインストールする手順を試す。</p>
+<div class="section" id="id1">
+<h2>動作環境</h2>
+<ul class="simple">
+<li>OS : Ubuntu 20.04.3 LTS（64 bit）</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>事前準備</h2>
+<p>インストール時にストレージの空き容量が約200GB必要となるため、十分な空き容量があるのかを確認する。
+足りない場合にはストレージの中を整理して空き容量を捻出しておく。</p>
+</div>
+<div class="section" id="id3">
+<h2>ファイルのダウンロード</h2>
+<p><a class="reference external" href="https://japan.xilinx.com/support/download/index.html/content/xilinx/ja/downloadNav/vitis.html">ダウンロードページ</a> から以下のファイルをダウンロードする。</p>
+<ul class="simple">
+<li>AMD 統合インストーラー FPGA およびアダプティブ SoC 用) 2023.1 SFD</li>
+</ul>
+<p>ファイルサイズを確認する。
+また、MD5ハッシュの値が正しいことも確認する。</p>
+<div class="highlight"><pre><span></span>$ du -h Xilinx_Unified_2023.1_0507_1903.tar.gz
+111G    Xilinx_Unified_2023.1_0507_1903.tar.gz
+$ md5sum Xilinx_Unified_2023.1_0507_1903.tar.gz
+f2011ceba52b109e3551c1d3189a8c9c  Xilinx_Unified_2023.1_0507_1903.tar.gz
+</pre></div>
+</div>
+<div class="section" id="id5">
+<h2>ファイルの展開</h2>
+<p><tt class="docutils literal">Xilinx_Unified_2023.1_0507_1903.tar.gz</tt> を解凍すると <tt class="docutils literal">Xilinx_Unified_2023.1_0507_1903</tt> ディレクトリが展開される。
+中身をVivado/Vitis/Vitis HLSのインストール先のディレクトリに移動する。
+ここではインストール先を <tt class="docutils literal">/tools/Xilinx</tt> とする。</p>
+<div class="highlight"><pre><span></span>tar xzvf Xilinx_Unified_2023.1_0507_1903.tar.gz
+sudo mkdir -p /tools/Xilinx/Downloads/Vitis_2023.1
+sudo mv Xilinx_Unified_2023.1_0507_1903/* /tools/Xilinx/Downloads/Vitis_2023.1/
+</pre></div>
+<p>この時点でストレージの空き容量が少ない場合には <tt class="docutils literal">Xilinx_Unified_2023.1_0507_1903.tar.gz</tt> を削除しても良い。</p>
+</div>
+<div class="section" id="id6">
+<h2>インストール</h2>
+<p>インストーラーを起動する。</p>
+<div class="highlight"><pre><span></span><span class="nb">cd</span> /tools/Xilinx/Downloads/Vitis_2023.1
+./xsetup
+</pre></div>
+<p><tt class="docutils literal">Select Product to Install</tt> では <tt class="docutils literal">Vitis</tt> を選択する。</p>
+<p>インストールを開始してから約20分ほどでインストールが完了する。
+インストール先の以下のファイルを <tt class="docutils literal">source</tt> する。</p>
+<div class="highlight"><pre><span></span><span class="nb">source</span> /tools/Xilinx/Vivado/2023.1/settings64.sh
+<span class="nb">source</span> /tools/Xilinx/Vitis/2023.1/settings64.sh
+<span class="nb">source</span> /tools/Xilinx/Vitis_HLS/2023.1/settings64.sh
+</pre></div>
+<p>VivadoとVitisとVitis HLSが正常に起動できることを確認する。</p>
+<div class="highlight"><pre><span></span>$ vivado
+
+****** Vivado v2023.1 <span class="o">(</span><span class="m">64</span>-bit<span class="o">)</span>
+  **** SW Build <span class="m">3865809</span> on Sun May  <span class="m">7</span> <span class="m">15</span>:04:56 MDT <span class="m">2023</span>
+  **** IP Build <span class="m">3864474</span> on Sun May  <span class="m">7</span> <span class="m">20</span>:36:21 MDT <span class="m">2023</span>
+  **** SharedData Build <span class="m">3865790</span> on Sun May <span class="m">07</span> <span class="m">13</span>:33:03 MDT <span class="m">2023</span>
+    ** Copyright <span class="m">1986</span>-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright <span class="m">2022</span>-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+start_gui
+</pre></div>
+<div class="highlight"><pre><span></span>$ vitis
+<span class="c1"># 略</span>
+
+****** Vitis Development Environment
+****** Vitis v2023.1 <span class="o">(</span><span class="m">64</span>-bit<span class="o">)</span>
+  **** SW Build <span class="m">3860322</span> on <span class="m">2023</span>-05-04-06:32:46
+    ** Copyright <span class="m">1986</span>-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright <span class="m">2022</span>-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+</pre></div>
+<div class="highlight"><pre><span></span>$ vitis_hls
+
+****** Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2023.1 <span class="o">(</span><span class="m">64</span>-bit<span class="o">)</span>
+  **** SW Build <span class="m">3854077</span> on May  <span class="m">4</span> <span class="m">2023</span>
+  **** IP Build <span class="m">3864474</span> on Sun May  <span class="m">7</span> <span class="m">20</span>:36:21 MDT <span class="m">2023</span>
+  **** SharedData Build <span class="m">3865790</span> on Sun May <span class="m">07</span> <span class="m">13</span>:33:03 MDT <span class="m">2023</span>
+    ** Copyright <span class="m">1986</span>-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright <span class="m">2022</span>-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+</pre></div>
+<p>正常にインストールできていることがわかる。</p>
+</div>
+
+        </div>
+
+        <!-- Neighbors -->
+
+        <!-- Google Adsense -->
+
+    <!-- Releated posts -->
+
+    <!-- Comments -->
                 </div>
         </main>
 
@@ -226,7 +363,7 @@
     <!-- Footer -->
     <footer class="flex-shrink-0 bg-dark text-light small py-1">
         <div class="container text-center">
-            &copy; 2023 <a href=".">メガバイト置き場</a> by <a href="./pages/about.html">npz35</a>. Powered by <a href="http://getpelican.com">Pelican</a>, <a href="http://python.org">Python</a>, <a href="https://getbootstrap.com">Bootstrap 4</a><br>
+            &copy; 2023 <a href="../../../..">メガバイト置き場</a> by <a href="../../../../pages/about.html">npz35</a>. Powered by <a href="http://getpelican.com">Pelican</a>, <a href="http://python.org">Python</a>, <a href="https://getbootstrap.com">Bootstrap 4</a><br>
             <!-- Do not remove below license sentence -->
             License: <a href="https://spdx.org/licenses/CC-BY-4.0.html">CC-BY-4.0</a>, based on <a href="https://github.com/vuquangtrong/simplify-theme">Simplify Bootstrap Theme</a>
         </div>
@@ -236,15 +373,15 @@
     <!--
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     -->
-    <script type="text/javascript" src="./theme/jquery/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="../../../../theme/jquery/jquery-3.4.1.min.js"></script>
     <!--
     <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/4.3.1/bootstrap.min.js"></script>
     -->
-    <script type="text/javascript" src="./theme/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../../theme/bootstrap/bootstrap.min.js"></script>
     <!--
     <script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script>
     -->
-    <script type="text/javascript" src="./theme/style.js"></script>
+    <script type="text/javascript" src="../../../../theme/style.js"></script>
 
     <!-- Sharing -->
 
@@ -252,11 +389,19 @@
 <script type="application/ld+json">
 {
     "@context": "http://schema.org",
-    "@type": "Blog",
-    "name": " メガバイト置き場 ",
-    "url": ".",
-    "image": "./",
-    "description": "npz35の雑記"
+    "@type": "BlogPosting",
+    "name": "Vivado/Vitis/Vitis HLS 2023.1をインストールする",
+    "headline": "Vivado/Vitis/Vitis HLS 2023.1をインストールする",
+    "datePublished": "2023-07-15 21:00:00+09:00",
+    "dateModified": "2023-07-15 22:18:41.287768+09:00",
+    "author": {
+        "@type": "Person",
+        "name": "npz35",
+        "url": "../../../../author/npz35.html"
+    },
+    "image": "../../../../favicon.ico",
+    "url": "../../../../archive/2023/07/vitis-2023.1/",
+    "description": "2023年5月にVivado/Vitis/Vitis HLS 2023.1がリリースされていたらしい。 Vivado/Vitis/Vitis HLS 2023.1をインストールする。 また、SFD（Single File Download）を事前にダ …"
 }
 </script>
     <!-- Disqus count -->
