@@ -301,7 +301,7 @@
 <div class="highlight"><pre><span></span>petalinux-config --component rootfs
 </pre></div>
 <p><tt class="docutils literal">user packages</tt> を選択して、必要な項目を有効化することでPetaLinuxイメージに含めることができる。
-ここでは <a class="reference external" href="https://github.com/npz35/vitis_tutorial/blob/0.1.0/user-rootfsconfig">vitis_tutorial/user-rootfsconfig</a> を使用して、全て有効化すればよい。
+ここでは <a class="reference external" href="https://github.com/npz35/vitis_tutorial/blob/0.2.0/user-rootfsconfig">vitis_tutorial/user-rootfsconfig</a> を使用して、全て有効化すればよい。
 また、 <tt class="docutils literal">gcc</tt> <tt class="docutils literal">g++</tt> <tt class="docutils literal">swig</tt> も必要なので有効化する。</p>
 <p>なお、 <tt class="docutils literal"><span class="pre">python3-bt2</span></tt> 、 <tt class="docutils literal"><span class="pre">python3-tk</span></tt> 、 <tt class="docutils literal"><span class="pre">python3-wasabi</span></tt> についても設定を追加し有効化した場合には、ビルド時に以下のエラーが出た。</p>
 <div class="highlight"><pre><span></span>ERROR: Nothing RPROVIDES <span class="s1">&#39;python3-bt2&#39;</span> <span class="o">(</span>but /home/np/xilinx-kv260-starterkit-2022.1/components/yocto/layers/meta-petalinux/recipes-core/images/petalinux-image-minimal.bb RDEPENDS on or otherwise requires it<span class="o">)</span>
@@ -461,7 +461,7 @@ sudo eject /dev/sdb
     <!-- Footer -->
     <footer class="flex-shrink-0 bg-dark text-light small py-1">
         <div class="container text-center">
-            &copy; 2022 <a href="../../../..">メガバイト置き場</a> by <a href="../../../../pages/about.html">npz35</a>. Powered by <a href="http://getpelican.com">Pelican</a>, <a href="http://python.org">Python</a>, <a href="https://getbootstrap.com">Bootstrap 4</a><br>
+            &copy; 2023 <a href="../../../..">メガバイト置き場</a> by <a href="../../../../pages/about.html">npz35</a>. Powered by <a href="http://getpelican.com">Pelican</a>, <a href="http://python.org">Python</a>, <a href="https://getbootstrap.com">Bootstrap 4</a><br>
             <!-- Do not remove below license sentence -->
             License: <a href="https://spdx.org/licenses/CC-BY-4.0.html">CC-BY-4.0</a>, based on <a href="https://github.com/vuquangtrong/simplify-theme">Simplify Bootstrap Theme</a>
         </div>
