@@ -5,7 +5,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://npz35.github.io/blog/</loc>
-<lastmod>2023-07-23T17:16:02-00:00</lastmod>
+<lastmod>2023-07-23T23:12:24-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -20,6 +20,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://npz35.github.io/blog/pages/policy.html</loc>
 <lastmod>2022-09-16T20:30:00+09:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://npz35.github.io/blog/archive/2023/07/petalinux-ros2-humble-2023.1/</loc>
+<lastmod>2023-07-23T23:12:09+09:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -124,28 +131,42 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://npz35.github.io/blog/category/xilinx.html</loc>
-<lastmod>2023-07-23T17:15:55+09:19</lastmod>
+<lastmod>2023-07-23T23:12:09+09:19</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://npz35.github.io/blog/tag/petalinux.html</loc>
-<lastmod>2023-07-23T17:15:55+09:19</lastmod>
+<lastmod>2023-07-23T23:12:09+09:19</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://npz35.github.io/blog/tag/kria-kv260.html</loc>
-<lastmod>2023-07-23T17:15:55+09:19</lastmod>
+<lastmod>2023-07-23T23:12:09+09:19</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://npz35.github.io/blog/tag/docker.html</loc>
-<lastmod>2023-07-23T17:15:55+09:19</lastmod>
+<lastmod>2023-07-23T23:12:09+09:19</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://npz35.github.io/blog/tag/ros2.html</loc>
+<lastmod>2023-07-23T23:12:09+09:19</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://npz35.github.io/blog/tag/ros2-humble.html</loc>
+<lastmod>2023-07-23T23:12:09+09:19</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -180,7 +201,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://npz35.github.io/blog/author/npz35.html</loc>
-<lastmod>2023-07-23T17:15:55+09:19</lastmod>
+<lastmod>2023-07-23T23:12:09+09:19</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
