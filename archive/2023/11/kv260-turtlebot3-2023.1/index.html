@@ -13,21 +13,21 @@
 
         <!-- Default metadata -->
     <meta name="author" content="npz35" />
-    <meta name="description" content="Kria Robotics StackのLinuxイメージをビルドする（2023.1） でビルドしたPetaLinuxにTurleBot3の依存パッケージを追加した。 ROS2パッケージ以外はPetaLinuxに …" />
-    <meta name="keywords" content="Kria Robotic Stack, Kria KV260, TurleBot3">
+    <meta name="description" content="Kria Robotics StackのLinuxイメージをビルドする（2023.1） でビルドしたPetaLinuxにTurtleBot3の依存パッケージを追加した。 ROS2パッケージ以外はPetaLinuxに …" />
+    <meta name="keywords" content="Kria Robotic Stack, Kria KV260, TurtleBot3">
 <meta property="og:site_name" content="メガバイト置き場" />
-<meta property="og:title" content="TurleBot3の依存パッケージをKria KV260にインストールする（2023.1）" />
-<meta property="og:description" content="Kria Robotics StackのLinuxイメージをビルドする（2023.1） でビルドしたPetaLinuxにTurleBot3の依存パッケージを追加した。 ROS2パッケージ以外はPetaLinuxに …" />
+<meta property="og:title" content="TurtleBot3の依存パッケージをKria KV260にインストールする（2023.1）" />
+<meta property="og:description" content="Kria Robotics StackのLinuxイメージをビルドする（2023.1） でビルドしたPetaLinuxにTurtleBot3の依存パッケージを追加した。 ROS2パッケージ以外はPetaLinuxに …" />
 <meta property="og:locale" content="en_US" />
 <meta property="og:url" content="../../../../archive/2023/11/kv260-turtlebot3-2023.1/" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2023-11-28 10:00:00+09:00" />
-<meta property="article:modified_time" content="2023-11-28 10:31:44.060633+09:00" />
+<meta property="article:modified_time" content="2023-11-28 10:42:51.990484+09:00" />
 <meta property="article:author" content="../../../../author/npz35.html">
 <meta property="article:section" content="Xilinx" />
 	<meta property="article:tag" content="Kria Robotic Stack" />
 	<meta property="article:tag" content="Kria KV260" />
-	<meta property="article:tag" content="TurleBot3" />
+	<meta property="article:tag" content="TurtleBot3" />
 	<meta property="og:image" content="../../../../">
 
         <!-- Site Claim -->
@@ -35,7 +35,7 @@
 
         <!-- Title -->
         <title>
-    TurleBot3の依存パッケージをKria KV260にインストールする（2023.1） &ndash; メガバイト置き場
+    TurtleBot3の依存パッケージをKria KV260にインストールする（2023.1） &ndash; メガバイト置き場
         </title>
         
         <!-- Icon -->
@@ -223,8 +223,8 @@
         <!-- Header -->
         <header class="bg-dark text-light shadow-sm pt-3 pb-2">
 	<div class="container">
-		<h3 id="kv260-turtlebot3-2023.1">TurleBot3の依存パッケージをKria KV260にインストールする（2023.1）</h3>
-		<p style="font-size:larger;"><p><a class="reference external" href="https://npz35.github.io/blog/archive/2023/11/krs-docker-2023.1/">Kria Robotics StackのLinuxイメージをビルドする（2023.1）</a> でビルドしたPetaLinuxにTurleBot3の依存パッケージを追加した。
+		<h3 id="kv260-turtlebot3-2023.1">TurtleBot3の依存パッケージをKria KV260にインストールする（2023.1）</h3>
+		<p style="font-size:larger;"><p><a class="reference external" href="https://npz35.github.io/blog/archive/2023/11/krs-docker-2023.1/">Kria Robotics StackのLinuxイメージをビルドする（2023.1）</a> でビルドしたPetaLinuxにTurtleBot3の依存パッケージを追加した。
 ROS2パッケージ以外はPetaLinuxに …</p></p>
         <div class="row mx-auto mt-3">
             <div class="col-xs-12 col-sm-12 col-md-6 text-left" style="padding: 0">
@@ -240,7 +240,7 @@ ROS2パッケージ以外はPetaLinuxに …</p></p>
                 <a class="badge badge-success" href="../../../../category/xilinx.html">xilinx</a>
                     <a class="badge badge-info" href="../../../../tag/kria-robotic-stack.html">kria robotic stack</a>
                     <a class="badge badge-info" href="../../../../tag/kria-kv260.html">kria kv260</a>
-                    <a class="badge badge-info" href="../../../../tag/turlebot3.html">turlebot3</a>
+                    <a class="badge badge-info" href="../../../../tag/turtlebot3.html">turtlebot3</a>
             </div>
         </div>
 	</div>
@@ -260,7 +260,7 @@ ROS2パッケージ以外はPetaLinuxに …</p></p>
 
         <!-- Article -->
         <div>
-            <p><a class="reference external" href="https://npz35.github.io/blog/archive/2023/11/krs-docker-2023.1/">Kria Robotics StackのLinuxイメージをビルドする（2023.1）</a> でビルドしたPetaLinuxにTurleBot3の依存パッケージを追加した。
+            <p><a class="reference external" href="https://npz35.github.io/blog/archive/2023/11/krs-docker-2023.1/">Kria Robotics StackのLinuxイメージをビルドする（2023.1）</a> でビルドしたPetaLinuxにTurtleBot3の依存パッケージを追加した。
 ROS2パッケージ以外はPetaLinuxに含めて、ROS2パッケージはKRSに含める形式をとった。</p>
 <div class="section" id="id1">
 <h2>動作環境</h2>
@@ -307,7 +307,7 @@ petalinux-build --sdk
 sed -i <span class="s1">&#39;s/const rclcpp::Time &amp; \/\*time\*\/, const rclcpp::Duration &amp; \/\*period\*\///g&#39;</span> <span class="se">\</span>
   src/turtlebot3/turtlebot3_hardware/src/turtlebot3_system.cpp
 </pre></div>
-<p>TurleBot3のROS2パッケージをビルドする。なお、確認した時点での <tt class="docutils literal"><span class="pre">hotfix-humble</span></tt> のcommit idは <tt class="docutils literal">9907060</tt> だった。</p>
+<p>TurtleBot3のROS2パッケージをビルドする。なお、確認した時点での <tt class="docutils literal"><span class="pre">hotfix-humble</span></tt> のcommit idは <tt class="docutils literal">9907060</tt> だった。</p>
 <div class="highlight"><pre><span></span><span class="nb">cd</span> ~/krs_ws
 git clone https://github.com/ROBOTIS-GIT/turtlebot3.git src/turtlebot3 -b hotfix-humble
 
@@ -325,7 +325,7 @@ colcon build <span class="se">\</span>
     turtlebot3_hardware <span class="se">\</span>
     turtlebot3
 </pre></div>
-<p><tt class="docutils literal"><span class="pre">install-kv260</span></tt> にTurleBot3のROS2パッケージのビルド生成物が追加される。</p>
+<p><tt class="docutils literal"><span class="pre">install-kv260</span></tt> にTurtleBot3のROS2パッケージのビルド生成物が追加される。</p>
 </div>
 
         </div>
@@ -372,10 +372,10 @@ colcon build <span class="se">\</span>
 {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
-    "name": "TurleBot3の依存パッケージをKria KV260にインストールする（2023.1）",
-    "headline": "TurleBot3の依存パッケージをKria KV260にインストールする（2023.1）",
+    "name": "TurtleBot3の依存パッケージをKria KV260にインストールする（2023.1）",
+    "headline": "TurtleBot3の依存パッケージをKria KV260にインストールする（2023.1）",
     "datePublished": "2023-11-28 10:00:00+09:00",
-    "dateModified": "2023-11-28 10:31:44.060633+09:00",
+    "dateModified": "2023-11-28 10:42:51.990484+09:00",
     "author": {
         "@type": "Person",
         "name": "npz35",
@@ -383,7 +383,7 @@ colcon build <span class="se">\</span>
     },
     "image": "../../../../favicon.ico",
     "url": "../../../../archive/2023/11/kv260-turtlebot3-2023.1/",
-    "description": "Kria Robotics StackのLinuxイメージをビルドする（2023.1） でビルドしたPetaLinuxにTurleBot3の依存パッケージを追加した。 ROS2パッケージ以外はPetaLinuxに …"
+    "description": "Kria Robotics StackのLinuxイメージをビルドする（2023.1） でビルドしたPetaLinuxにTurtleBot3の依存パッケージを追加した。 ROS2パッケージ以外はPetaLinuxに …"
 }
 </script>
     <!-- Disqus count -->

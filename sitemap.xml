@@ -5,7 +5,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://npz35.github.io/blog/</loc>
-<lastmod>2023-11-28T10:34:14-00:00</lastmod>
+<lastmod>2023-11-28T10:42:55-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -20,6 +20,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://npz35.github.io/blog/pages/policy.html</loc>
 <lastmod>2022-09-16T20:30:00+09:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://npz35.github.io/blog/archive/2023/11/kv260-turtlebot3-2023.1/</loc>
+<lastmod>2023-11-28T10:42:51+09:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -138,21 +145,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://npz35.github.io/blog/category/xilinx.html</loc>
-<lastmod>2023-11-28T09:40:00+09:19</lastmod>
+<lastmod>2023-11-28T10:42:51+09:19</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://npz35.github.io/blog/tag/kria-robotic-stack.html</loc>
-<lastmod>2023-11-28T09:40:00+09:19</lastmod>
+<lastmod>2023-11-28T10:42:51+09:19</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://npz35.github.io/blog/tag/kria-kv260.html</loc>
-<lastmod>2023-11-28T09:40:00+09:19</lastmod>
+<lastmod>2023-11-28T10:42:51+09:19</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://npz35.github.io/blog/tag/turtlebot3.html</loc>
+<lastmod>2023-11-28T10:42:51+09:19</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -208,7 +222,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://npz35.github.io/blog/author/npz35.html</loc>
-<lastmod>2023-11-28T09:40:00+09:19</lastmod>
+<lastmod>2023-11-28T10:42:51+09:19</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
