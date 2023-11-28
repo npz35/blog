@@ -22,7 +22,7 @@
 <meta property="og:url" content="../../../../archive/2023/11/krs-docker-2023.1/" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2023-11-26 16:00:00+09:00" />
-<meta property="article:modified_time" content="2023-11-26 16:58:59.849973+09:00" />
+<meta property="article:modified_time" content="2023-11-28 09:40:00+09:00" />
 <meta property="article:author" content="../../../../author/npz35.html">
 <meta property="article:section" content="Xilinx" />
 	<meta property="article:tag" content="Kria Robotic Stack" />
@@ -231,7 +231,7 @@
                 <span class="card-link text-success">
                     <span class="post-date" title="Post date">Sun 26 November 2023</span>
                     <span class="text-info modified-date" title="Updated date">
-                            Sun 26 November 2023
+                            Tue 28 November 2023
                     </span>
                 </span>
             </div>
@@ -341,7 +341,7 @@ ERROR: Task <span class="o">(</span>/home/np/xilinx-kv260-starterkit-2023.1/comp
 <span class="p">|</span> WARNING: <span class="nb">exit</span> code <span class="m">2</span> from a shell command.
 ERROR: Task <span class="o">(</span>/home/np/xilinx-kv260-starterkit-2023.1/components/yocto/layers/meta-petalinux/recipes-core/images/petalinux-image-minimal.bb:do_image_cpio<span class="o">)</span> failed with <span class="nb">exit</span> code <span class="s1">&#39;1&#39;</span>
 </pre></div>
-<p>上記のエラーを回避するために <tt class="docutils literal"><span class="pre">petalinux-config</span></tt> を実行し <tt class="docutils literal">Root filesystem type</tt> から <tt class="docutils literal">INITRD</tt> を <tt class="docutils literal">EXT4</tt> へ変更する。</p>
+<p>上記のエラーを回避するために <tt class="docutils literal"><span class="pre">petalinux-config</span></tt> を実行し <tt class="docutils literal">Image Packaging Configuration</tt> の <tt class="docutils literal">Root filesystem type</tt> から <tt class="docutils literal">INITRD</tt> を <tt class="docutils literal">EXT4</tt> へ変更する。</p>
 <p>また <tt class="docutils literal"><span class="pre">project-spec/meta-user/conf/petalinuxbsp.conf</span></tt> に以下の設定を追記してcpio形式でファイルが生成されないようにする。</p>
 <div class="highlight"><pre><span></span><span class="w"> </span>IMAGE_BOOT_FILES:zynqmp = &quot;ramdisk.cpio.gz.u-boot,boot.scr,Image,system.dtb,system-zynqmp-sck-kv-g-revB.dtb&quot;<span class="w"></span>
 <span class="gi">+</span><span class="w"></span>
@@ -628,7 +628,7 @@ sudo eject <span class="si">${</span><span class="nv">SD_PATH</span><span class=
     "name": "Kria Robotics StackのLinuxイメージをビルドする（2023.1）",
     "headline": "Kria Robotics StackのLinuxイメージをビルドする（2023.1）",
     "datePublished": "2023-11-26 16:00:00+09:00",
-    "dateModified": "2023-11-26 16:58:59.849973+09:00",
+    "dateModified": "2023-11-28 09:40:00+09:00",
     "author": {
         "@type": "Person",
         "name": "npz35",
