@@ -22,7 +22,7 @@
 <meta property="og:url" content="../../../../archive/2023/11/kv260-turtlebot3-2023.1/" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2023-11-28 10:00:00+09:00" />
-<meta property="article:modified_time" content="2023-11-28 10:42:51.990484+09:00" />
+<meta property="article:modified_time" content="2023-12-01 09:50:00+09:00" />
 <meta property="article:author" content="../../../../author/npz35.html">
 <meta property="article:section" content="Xilinx" />
 	<meta property="article:tag" content="Kria Robotic Stack" />
@@ -232,7 +232,7 @@ ROS2パッケージ以外はPetaLinuxに …</p></p>
                 <span class="card-link text-success">
                     <span class="post-date" title="Post date">Tue 28 November 2023</span>
                     <span class="text-info modified-date" title="Updated date">
-                            Tue 28 November 2023
+                            Fri 01 December 2023
                     </span>
                 </span>
             </div>
@@ -281,6 +281,8 @@ ROS2パッケージ以外はPetaLinuxに含めて、ROS2パッケージはKRSに
 <span class="w"> </span>    ltt-control-dev \<span class="w"></span>
 <span class="gi">+    dynamixel-sdk \</span><span class="w"></span>
 <span class="gi">+    hardware-interface \</span><span class="w"></span>
+<span class="gi">+    urdf-parser-plugin \</span><span class="w"></span>
+<span class="gi">+    robot-state-publisher \</span><span class="w"></span>
 <span class="w"> </span>&quot;<span class="w"></span>
 </pre></div>
 <p>ビルドする。</p>
@@ -300,16 +302,10 @@ petalinux-build --sdk
 </div>
 <div class="section" id="ros2">
 <h2>ROS2パッケージのビルド</h2>
-<p><tt class="docutils literal"><span class="pre">kria-robotics-stack-docker</span></tt> のDockerコンテナの中で <tt class="docutils literal">turtlebot3_hardware</tt> と <tt class="docutils literal"><span class="pre">hardware-interface</span></tt> の不整合を修正する。</p>
-<div class="highlight"><pre><span></span>sed -i <span class="s1">&#39;s/const rclcpp::Time &amp; time, const rclcpp::Duration &amp; period//g&#39;</span> <span class="se">\</span>
-  src/turtlebot3/turtlebot3_hardware/include/turtlebot3_hardware/turtlebot3_system.hpp
-
-sed -i <span class="s1">&#39;s/const rclcpp::Time &amp; \/\*time\*\/, const rclcpp::Duration &amp; \/\*period\*\///g&#39;</span> <span class="se">\</span>
-  src/turtlebot3/turtlebot3_hardware/src/turtlebot3_system.cpp
-</pre></div>
-<p>TurtleBot3のROS2パッケージをビルドする。なお、確認した時点での <tt class="docutils literal"><span class="pre">hotfix-humble</span></tt> のcommit idは <tt class="docutils literal">9907060</tt> だった。</p>
+<p>TurtleBot3のROS2パッケージをビルドする。なお、確認した時点での <tt class="docutils literal"><span class="pre">humble-devel</span></tt> のcommit idは <tt class="docutils literal">turtlebot3</tt> が <tt class="docutils literal">a7dd05a</tt> 、 <tt class="docutils literal">turtlebot3_msgs</tt> が <tt class="docutils literal">2e8f63d</tt> だった。</p>
 <div class="highlight"><pre><span></span><span class="nb">cd</span> ~/krs_ws
-git clone https://github.com/ROBOTIS-GIT/turtlebot3.git src/turtlebot3 -b hotfix-humble
+git clone https://github.com/ROBOTIS-GIT/turtlebot3.git      src/turtlebot3      -b humble-devel
+git clone https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git src/turtlebot3_msgs -b humble-devel
 
 colcon build <span class="se">\</span>
   --build-base<span class="o">=</span>build-kv260 <span class="se">\</span>
@@ -317,12 +313,12 @@ colcon build <span class="se">\</span>
   --merge-install <span class="se">\</span>
   --mixin kv260 <span class="se">\</span>
   --packages-up-to <span class="se">\</span>
+    turtlebot3_msgs <span class="se">\</span>
     turtlebot3_bringup <span class="se">\</span>
     turtlebot3_description <span class="se">\</span>
     turtlebot3_example <span class="se">\</span>
     turtlebot3_navigation2 <span class="se">\</span>
     turtlebot3_teleop <span class="se">\</span>
-    turtlebot3_hardware <span class="se">\</span>
     turtlebot3
 </pre></div>
 <p><tt class="docutils literal"><span class="pre">install-kv260</span></tt> にTurtleBot3のROS2パッケージのビルド生成物が追加される。</p>
@@ -375,7 +371,7 @@ colcon build <span class="se">\</span>
     "name": "TurtleBot3の依存パッケージをKria KV260にインストールする（2023.1）",
     "headline": "TurtleBot3の依存パッケージをKria KV260にインストールする（2023.1）",
     "datePublished": "2023-11-28 10:00:00+09:00",
-    "dateModified": "2023-11-28 10:42:51.990484+09:00",
+    "dateModified": "2023-12-01 09:50:00+09:00",
     "author": {
         "@type": "Person",
         "name": "npz35",
